@@ -1,0 +1,38 @@
+// color
+$purple: #494cb4;
+$grey: #808080;
+$red: #dc3545;
+$blue: #007bff;
+$skyblue: #87ceeb;
+$green: #3fc95a;
+$smokewhite: #fafafa;
+$yellow: #ffcb56;
+
+// font-weight
+$thin: 100;
+$light: 300;
+$regular: 400;
+$mideum: 500;
+$bold: 700;
+
+// font-size
+$XXsmall: 8px;
+$Xsmall: 10px;
+$small: 12px;
+$base: 14px;
+$large: 16px;
+$Xlarge: 18px;
+$XXlarge: 20px;
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+}
