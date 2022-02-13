@@ -23,16 +23,31 @@ $base: 14px;
 $large: 16px;
 $Xlarge: 18px;
 $XXlarge: 20px;
+$h1: 32px;
+
+body {
+  margin: 0px;
+  font-family: sans-serif;
+}
 
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
 }
 
-body {
-  margin: 0px;
-}
-
 a {
   text-decoration: none;
+}
+
+h1 {
+  font-size: $h1;
+}
+
+h2 {
+  font-size: $XXlarge;
+}
+
+h3 {
+  font-size: $Xlarge;
+  font-weight: $regular;
 }
