@@ -1,5 +1,5 @@
 // color
-$purple: #494cb4;
+$slateblue: #494cb4;
 $grey: #808080;
 $red: #dc3545;
 $blue: #007bff;
@@ -7,6 +7,8 @@ $skyblue: #87ceeb;
 $green: #3fc95a;
 $smokewhite: #fafafa;
 $yellow: #ffcb56;
+$black: #000000;
+$white: #ffffff;
 
 // font-weight
 $thin: 100;
@@ -27,7 +29,7 @@ $h1: 32px;
 
 // col AND row
 .row {
-  display: felx;
+  display: flex;
   width: 100%;
 }
 
@@ -64,4 +66,60 @@ h2 {
 h3 {
   font-size: $Xlarge;
   font-weight: $regular;
+}
+
+.navbar {
+  width: 130px;
+  position: fixed;
+  transform: translateX(-85px);
+  background-color: $slateblue;
+  padding: 15px;
+  height: 100%;
+  z-index: 10;
+
+  .navbar__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    align-content: center;
+  }
+
+  .navbar__list__item {
+    display: flex;
+    padding: 5px 0px;
+    margin: 10px 0px;
+  }
+
+  a {
+    color: $white;
+    font-size: $Xlarge;
+  }
+
+  span {
+    margin-right: 20px;
+  }
+
+  &:hover {
+    transform: translateX(0px);
+    transition: 600ms;
+
+    .navbar__list {
+      align-items: flex-start;
+      transition: 600ms;
+    }
+
+    .navbar__list__item {
+      flex-direction: row-reverse;
+      transition: 600ms;
+    }
+
+    span {
+      margin-right: 0px;
+      margin-left: 20px;
+    }
+  }
+}
+
+.rightcontainer {
+  transform: translate(55px);
 }

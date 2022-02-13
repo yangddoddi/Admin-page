@@ -1,5 +1,5 @@
 .row {
-  display: felx;
+  display: flex;
   width: 100%;
 }
 
@@ -76,4 +76,52 @@ h2 {
 h3 {
   font-size: 18px;
   font-weight: 400;
+}
+
+.navbar {
+  width: 130px;
+  position: fixed;
+  transform: translateX(-85px);
+  background-color: #494cb4;
+  padding: 15px;
+  height: 100%;
+  z-index: 10;
+}
+.navbar .navbar__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-content: center;
+}
+.navbar .navbar__list__item {
+  display: flex;
+  padding: 5px 0px;
+  margin: 10px 0px;
+}
+.navbar a {
+  color: #ffffff;
+  font-size: 18px;
+}
+.navbar span {
+  margin-right: 20px;
+}
+.navbar:hover {
+  transform: translateX(0px);
+  transition: 600ms;
+}
+.navbar:hover .navbar__list {
+  align-items: flex-start;
+  transition: 600ms;
+}
+.navbar:hover .navbar__list__item {
+  flex-direction: row-reverse;
+  transition: 600ms;
+}
+.navbar:hover span {
+  margin-right: 0px;
+  margin-left: 20px;
+}
+
+.rightcontainer {
+  transform: translate(55px);
 }/*# sourceMappingURL=style.css.map */
