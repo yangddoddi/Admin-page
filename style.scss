@@ -25,6 +25,20 @@ $Xlarge: 18px;
 $XXlarge: 20px;
 $h1: 32px;
 
+// col AND row
+.row {
+  display: felx;
+  width: 100%;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    width: (100%/12) * $i;
+  }
+}
+
+// Global setting
+
 body {
   margin: 0px;
   font-family: sans-serif;
