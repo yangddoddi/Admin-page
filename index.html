@@ -15,7 +15,9 @@
 </head>
 
 <body>
+    <!-- Container -->
     <div class="container row">
+        <!-- Navbar -->
         <nav class="navbar">
             <div class="navbar__list">
                 <a href="#" class="navbar__list__item">
@@ -32,7 +34,9 @@
                 </a>
             </div>
         </nav>
+        <!-- rightcontainer -->
         <div class="rightcontainer">
+            <!-- Header -->
             <header class="header">
                 <div class="header__container">
                     <div class="header__search">
@@ -49,101 +53,108 @@
                         </a>
                         <a href="#" class="header__menu__item"><span>Eunchan Yang</span></a>
                     </div>
+                    <a class="hamburg" href="#"><i class="fa-solid fa-bars"></i></a>
                 </div>
             </header>
+            <!-- Dashboard -->
             <section class="dashboard">
-                <h1>Dashboard</h1>
-                <div class="dashboard__cards">
-                    <div class="dashboard__cards__item">
-                        <div class="cards__item__group">
-                            <h3>Earnings (Monthly)</h3>
-                            <h2>$400,000</h2>
+                <div class="dashboard__container">
+                    <h1>Dashboard</h1>
+                    <div class="dashboard__cards row">
+                        <div class="dashboard__cards__item col-md-3 col-12">
+                            <div class="cards__item__group">
+                                <h3>Earnings (Monthly)</h3>
+                                <h2>$400,000</h2>
+                            </div>
+                            <i class="fa-solid fa-calendar"></i>
                         </div>
-                        <i class="fa-solid fa-calendar"></i>
+                        <div class="dashboard__cards__item col-md-3 col-12">
+                            <div class="cards__item__group">
+                                <h3>Earnings (Annual)</h3>
+                                <h2>$1,000,000</h2>
+                            </div>
+                            <i class="fa-solid fa-dollar-sign"></i>
+                        </div>
+                        <div class="dashboard__cards__item col-md-3 col-12">
+                            <div class="cards__item__group">
+                                <h3>Tasks</h3>
+                                <h2>13</h2>
+                            </div>
+                            <i class="fa-solid fa-list"></i>
+                        </div>
+                        <div class="dashboard__cards__item col-md-3 col-12">
+                            <div class="cards__item__group">
+                                <h3>Requests</h3>
+                                <h2>26</h2>
+                            </div>
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
                     </div>
-                    <div class="dashboard__cards__item">
-                        <div class="cards__item__group">
-                            <h3>Earnings (Annual)</h3>
-                            <h2>$1,000,000</h2>
+                    <div class="dashboard__container__bottom row">
+                        <div class="dashboard__chartbox col-md-8 col-12">
+                            <h3 class="dashboard__chartbox__title">Earning Overview</h3>
+                            <div class="dashboard__chartbox__chart">
+                                <canvas id="myChart"></canvas>
+                            </div>
                         </div>
-                        <i class="fa-solid fa-dollar-sign"></i>
-                    </div>
-                    <div class="dashboard__cards__item">
-                        <div class="cards__item__group">
-                            <h3>Tasks</h3>
-                            <h2>13</h2>
-                        </div>
-                        <i class="fa-solid fa-list"></i>
-                    </div>
-                    <div class="dashboard__cards__item">
-                        <div class="cards__item__group">
-                            <h3>Requests</h3>
-                            <h2>26</h2>
-                        </div>
-                        <i class="fa-solid fa-comments"></i>
-                    </div>
-                </div>
-                <div class="dashboard__chartbox">
-                    <h3 class="dashboard__chartbox__title">Earning Overview</h3>
-                    <div class="dashboard__chartbox__chart">
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
-                        <canvas id="myChart" width="400" height="200"></canvas>
-                        <script>
-                            const ctx = document.getElementById('myChart').getContext('2d');
-                            const myChart = new Chart(ctx, {
-                                type: 'line',
-                                data: {
-                                    labels: ['Sebtember', 'October', 'November', 'December', 'January', 'February'],
-                                    datasets: [{
-                                        label: '# of Votes',
-                                        data: [270, 510, 270, 320, 150, 400],
-                                        fill: true,
-                                        tension: 0.3,
-                                        backgroundColor: [
-                                            'rgba(255, 159, 64, 0.2)'
-                                        ],
-                                        borderColor: [
-                                            'rgba(255, 206, 86, 1)',
-                                            'rgba(75, 192, 192, 1)',
-                                            'rgba(153, 102, 255, 1)',
-                                            'rgba(255, 159, 64, 1)'
-                                        ],
-                                        borderWidth: 1
-                                    }]
-                                },
-                                options: {
-                                    scales: {
-                                        y: {
-                                            beginAtZero: true
-                                        }
-                                    }
-                                }
-                            });
-                        </script>
-
-                    </div>
-                </div>
-                <div class="dashboard__tasks">
-                    <h3>Tasks</h3>
-                    <div class="dashboard__tasks__list">
-                        <div class="tasks__list__item">
-                            <h3>Borrowed Items</h3>
-                            <span>14</span>
-                        </div>
-                        <div class="tasks__list__item">
-                            <h3>Trello requests</h3>
-                            <span>2</span>
-                        </div>
-                        <div class="tasks__list__item">
-                            <h3>Marked Comments</h3>
-                            <span>1
-                            </span>
+                        <div class="dashboard__tasks col-md-4 col-12">
+                            <h3 class="dashboard__tasks__title">Tasks</h3>
+                            <div class="dashboard__tasks__list">
+                                <div class="tasks__list__item">
+                                    <h3>Borrowed Items</h3>
+                                    <span>14</span>
+                                </div>
+                                <div class="tasks__list__item">
+                                    <h3>Trello requests</h3>
+                                    <span>2</span>
+                                </div>
+                                <div class="tasks__list__item">
+                                    <h3>Marked Comments</h3>
+                                    <span>1</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Sebtember', 'October', 'November', 'December', 'January', 'February'],
+                datasets: [{
+                    label: ': Monthly',
+                    data: [270, 510, 270, 320, 150, 400],
+                    fill: true,
+                    tension: 0.3,
+                    backgroundColor: [
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                maintainAspectRatioL: false,
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
 </body>
 
 </html>

@@ -10,6 +10,7 @@ $yellow: #ffcb56;
 $black: #000000;
 $white: #ffffff;
 $darkgrey: #343a40;
+$shadow: #d3d3d3;
 
 // font-weight
 $thin: 100;
@@ -28,6 +29,19 @@ $Xlarge: 18px;
 $XXlarge: 20px;
 $h1: 32px;
 
+// dashboard__Card__design
+@mixin card($borderColor) {
+  box-shadow: 1px 1px 2px 1px $shadow;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid $smokewhite;
+  border-radius: 5px;
+  border-left: 3px $borderColor solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 // col AND row
 .row {
   display: flex;
@@ -35,7 +49,7 @@ $h1: 32px;
 }
 
 @for $i from 1 through 12 {
-  .col-#{$i} {
+  .col-md-#{$i} {
     width: (100%/12) * $i;
   }
 }
@@ -50,6 +64,12 @@ body {
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
 }
 
 a {
@@ -134,7 +154,10 @@ h3 {
 // Header
 
 .header {
+  position: relative;
   background-color: $white;
+  box-shadow: 0px 3px 5px $shadow;
+  z-index: 9;
 }
 
 .header__container {
@@ -145,7 +168,6 @@ h3 {
   align-items: center;
   background-color: $white;
   height: 50px;
-  box-shadow: 0px 1px 3px 2px lightgray;
 
   .header__search {
     display: flex;
@@ -160,6 +182,12 @@ h3 {
     border-right: none;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+    width: 150px;
+    transition: 500ms all;
+  }
+
+  .header__search input:focus {
+    width: 250px;
   }
 
   .header__search i {
@@ -201,5 +229,169 @@ h3 {
   a {
     position: relative;
     color: $black;
+  }
+
+  .hamburg {
+    position: absolute;
+    right: 60px;
+    display: none;
+  }
+}
+
+// Dashboard
+
+.dashboard {
+  position: relative;
+  background-color: $smokewhite;
+  width: 100%;
+  height: 100vh;
+  padding: 20px 20px 0px 10px;
+
+  .dashboard__container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    max-width: 1200px;
+  }
+
+  .dashboard__cards__item:nth-child(1) {
+    @include card($skyblue);
+    margin-left: 0px;
+  }
+
+  .dashboard__cards__item:nth-child(2) {
+    @include card($green);
+  }
+
+  .dashboard__cards__item:nth-child(3) {
+    @include card($slateblue);
+  }
+
+  .dashboard__cards__item:nth-child(4) {
+    @include card($yellow);
+    margin-right: 40px;
+  }
+
+  .dashboard__cards__item i {
+    font-size: 30px;
+    color: $grey;
+  }
+
+  .dashboard__container__bottom {
+    margin-top: 30px;
+    display: flex;
+  }
+
+  .dashboard__chartbox {
+    position: relative;
+    box-shadow: 1px 1px 2px 1px $shadow;
+    margin-right: 20px;
+    border: 1px solid $smokewhite;
+    border-radius: 5px;
+  }
+
+  .dashboard__chartbox__title {
+    margin: 0px;
+    padding: 5px 10px;
+    background-color: $smokewhite;
+    border-bottom: 1px solid $shadow;
+    font-weight: bold;
+  }
+
+  .dashboard__tasks {
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px 1px $shadow;
+    margin-right: 40px;
+    height: 130px;
+  }
+
+  .dashboard__tasks__title {
+    margin: 0px;
+    padding: 5px 15px;
+    background-color: $smokewhite;
+    border-bottom: 1px solid $shadow;
+    font-weight: bold;
+  }
+
+  .tasks__list__item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $shadow;
+    padding: 5px 15px;
+  }
+
+  .tasks__list__item h3 {
+    margin: 0px;
+  }
+
+  .tasks__list__item span {
+    background-color: $blue;
+    width: 16px;
+    height: 16px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 16px;
+    color: $white;
+  }
+
+  .tasks__list__item:nth-child(1) span {
+    width: 25px;
+  }
+}
+
+// mobile display
+
+@media screen and (max-width: 768px) {
+  @for $i from 1 through 12 {
+    .col-#{$i} {
+      width: (100%/12) * $i;
+    }
+  }
+
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .header {
+    .header__menu,
+    .header__search {
+      display: none;
+    }
+
+    .hamburg {
+      display: block;
+    }
+  }
+
+  .dashboard__container {
+    width: 90%;
+  }
+
+  .dashboard {
+    .dashboard__cards__item {
+      margin: 0px;
+    }
+
+    .dashboard__cards__item:nth-child(1) {
+      margin-left: 10px;
+    }
+
+    .dashboard__cards__item:nth-child(4) {
+      margin-right: 10px;
+    }
+
+    .dashboard__container__bottom {
+      margin-left: 10px;
+      padding-right: 20px;
+    }
+
+    .dashboard__chartbox {
+      margin-bottom: 40px;
+    }
+
+    .dashboard__tasks {
+      margin-right: 0px;
+      margin-bottom: 50px;
+    }
   }
 }
